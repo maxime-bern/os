@@ -4,5 +4,6 @@ install:
   packages:
     - htop
     - nvtop
+    - stow
     - tailscale
     - xz

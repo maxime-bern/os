@@ -6,5 +6,4 @@ install:
     - nodejs22
     - nodejs22-npm
     - python3-pip
-    - stow
     - tar

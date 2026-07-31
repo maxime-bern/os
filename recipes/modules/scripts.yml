@@ -3,7 +3,7 @@
 type: script
 scripts:
   - ai.sh
+  - default-shell.sh
   - ddev.sh
   - neovim.sh
   - starship.sh
-  - dotfiles.sh
