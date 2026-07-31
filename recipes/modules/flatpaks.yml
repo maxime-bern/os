@@ -1,0 +1,19 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+type: default-flatpaks
+configurations:
+  - notify: true
+    scope: system
+    install:
+      - com.discordapp.Discord
+      - com.heroicgameslauncher.hgl
+      - com.obsproject.Studio
+      - com.rustdesk.RustDesk
+      - com.spotify.Client
+      - org.fedoraproject.MediaWriter
+      - org.fkoehler.KTailctl
+      - org.kde.kdenlive
+      - org.prismlauncher.PrismLauncher
+      - org.qbittorrent.qBittorrent
+      - org.videolan.VLC
+  - scope: user
