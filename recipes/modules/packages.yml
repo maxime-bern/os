@@ -1,0 +1,62 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+type: dnf
+repos:
+  nonfree: rpmfusion
+  files:
+    - https://download.docker.com/linux/fedora/docker-ce.repo
+    - 1password.repo
+  keys:
+    - https://downloads.1password.com/linux/keys/1password.asc
+  copr:
+    - sneexy/zen-browser
+install:
+  packages:
+    - 1password
+    - 1password-cli
+    - cmake
+    - containerd.io
+    - distrobox
+    - docker-buildx-plugin
+    - docker-ce
+    - docker-ce-cli
+    - docker-compose-plugin
+    - extra-cmake-modules
+    - fzf
+    - gcc-c++
+    - git
+    - gstreamer1-plugin-openh264
+    - gstreamer1-plugins-bad-freeworld
+    - gstreamer1-plugins-ugly
+    - htop
+    - kitty
+    - libavcodec-freeworld
+    - libva-utils
+    - libvirt-daemon-config-network
+    - libvirt-daemon-kvm
+    - make
+    - nodejs22
+    - nodejs22-npm
+    - nvtop
+    - python3-pip
+    - qemu-kvm
+    - ripgrep
+    - steam
+    - stow
+    - tailscale
+    - tar
+    - tmux
+    - virt-install
+    - virt-manager
+    - virt-viewer
+    - vulkan-loader.i686
+    - xz
+    - zen-browser
+    - zsh
+    - zsh-autosuggestions
+    - zsh-syntax-highlighting
+replace:
+  - from-repo: fedora-cisco-openh264
+    packages:
+      - old: noopenh264
+        new: mozilla-openh264
