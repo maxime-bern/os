@@ -20,5 +20,5 @@ dnf5 install --assumeyes "$package"
 
 python3 -m pip install --break-system-packages --no-cache-dir --prefix /usr "headroom-ai[proxy]"
 
-npm install --global --prefix /usr --ignore-scripts gitnexus opencode-ai
+npm install --global --prefix /usr --ignore-scripts codegraph @earendil-works/pi-coding-agent
 npm cache clean --force
