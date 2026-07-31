@@ -31,6 +31,8 @@ install:
     - libvirt-daemon-kvm
     - make
     - nvtop
+    - nodejs22
+    - nodejs22-npm
     - obs-studio
     - qemu-kvm
     - ripgrep
