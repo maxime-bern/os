@@ -1,0 +1,9 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+type: script
+scripts:
+  - ai.sh
+  - ddev.sh
+  - neovim.sh
+  - starship.sh
+  - dotfiles.sh
