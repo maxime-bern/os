@@ -1,0 +1,11 @@
+---
+type: dnf
+repos:
+  nonfree: rpmfusion
+  files:
+    - https://download.docker.com/linux/fedora/docker-ce.repo
+    - 1password.repo
+  keys:
+    - https://downloads.1password.com/linux/keys/1password.asc
+  copr:
+    - sneexy/zen-browser

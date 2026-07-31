@@ -1,0 +1,11 @@
+---
+type: dnf
+install:
+  packages:
+    - curl
+    - git
+    - nodejs22
+    - nodejs22-npm
+    - python3-pip
+    - stow
+    - tar

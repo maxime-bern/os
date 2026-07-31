@@ -1,0 +1,7 @@
+---
+type: dnf
+install:
+  packages:
+    - zsh
+    - zsh-autosuggestions
+    - zsh-syntax-highlighting

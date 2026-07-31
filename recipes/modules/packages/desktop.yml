@@ -1,0 +1,18 @@
+---
+type: dnf
+install:
+  packages:
+    - 1password
+    - 1password-cli
+    - gstreamer1-plugin-openh264
+    - gstreamer1-plugins-bad-freeworld
+    - gstreamer1-plugins-ugly
+    - libavcodec-freeworld
+    - libva-utils
+    - obs-studio
+    - zen-browser
+replace:
+  - from-repo: fedora-cisco-openh264
+    packages:
+      - old: noopenh264
+        new: mozilla-openh264

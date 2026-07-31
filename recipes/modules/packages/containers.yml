@@ -1,0 +1,10 @@
+---
+type: dnf
+install:
+  packages:
+    - containerd.io
+    - distrobox
+    - docker-buildx-plugin
+    - docker-ce
+    - docker-ce-cli
+    - docker-compose-plugin

@@ -1,0 +1,6 @@
+---
+type: dnf
+install:
+  packages:
+    - steam
+    - vulkan-loader.i686
