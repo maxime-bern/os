@@ -7,7 +7,6 @@ configurations:
     install:
       - com.discordapp.Discord
       - com.heroicgameslauncher.hgl
-      - com.obsproject.Studio
       - com.rustdesk.RustDesk
       - com.spotify.Client
       - org.fedoraproject.MediaWriter
