@@ -7,3 +7,4 @@ install:
     - nodejs22-npm
     - python3-pip
     - tar
+    - unzip

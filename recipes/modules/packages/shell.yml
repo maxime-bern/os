@@ -2,6 +2,7 @@
 type: dnf
 install:
   packages:
+    - zoxide
     - zsh
     - zsh-autosuggestions
     - zsh-syntax-highlighting
