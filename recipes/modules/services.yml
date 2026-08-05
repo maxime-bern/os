@@ -4,4 +4,5 @@ type: systemd
 system:
   enabled:
     - docker.service
+    - gdm.service
     - tailscaled.service

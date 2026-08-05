@@ -11,3 +11,4 @@ repos:
     - https://packages.microsoft.com/keys/microsoft.asc
   copr:
     - sneexy/zen-browser
+    - yalter/niri
