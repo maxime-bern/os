@@ -6,6 +6,6 @@ scripts:
   - default-shell.sh
   - ddev.sh
   - jetbrains-mono-nerd-font.sh
-  - niri-noctalia.sh
+  - noctalia-greeter.sh
   - neovim.sh
   - starship.sh

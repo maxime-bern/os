@@ -30,6 +30,14 @@ To rebase an existing atomic Fedora installation to the latest build:
 
 The `latest` tag will automatically point to the latest build. That build will still always use the Fedora version specified in `recipe.yml`, so you won't get accidentally updated to the next major version.
 
+### Dotfiles
+
+Enable the chezmoi initialization and update services for your user:
+
+```bash
+systemctl --user enable --now chezmoi-init.service chezmoi-update.timer
+```
+
 ### BlueBuild switch
 
 Build and switch to the local recipe with the helper script. It uses a graphical Polkit prompt for BlueBuild's privileged operation:

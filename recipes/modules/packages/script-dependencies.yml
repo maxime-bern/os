@@ -2,9 +2,29 @@
 type: dnf
 install:
   packages:
+    - cairo-devel
     - curl
+    - fontconfig-devel
+    - freetype-devel
+    - gcc-c++
+    - glib2-devel
+    - harfbuzz-devel
+    - json-devel
+    - libglvnd-devel
+    - libinput-devel
+    - librsvg2-devel
+    - libwebp-devel
+    - libxkbcommon-devel
+    - mesa-libEGL-devel
+    - meson
     - nodejs22
     - nodejs22-npm
+    - pango-devel
     - python3-pip
+    - stb_image_resize2-devel
     - tar
+    - tomlplusplus-devel
     - unzip
+    - wayland-devel
+    - wayland-protocols-devel
+    - wlroots-devel

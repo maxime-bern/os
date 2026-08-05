@@ -1,0 +1,6 @@
+---
+type: chezmoi
+repository: https://gitlab.com/maximebern/dotfiles.git
+branch: feat/chezmoi
+all-users: true
+file-conflict-policy: replace

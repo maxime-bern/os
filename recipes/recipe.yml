@@ -3,11 +3,11 @@
 name: os
 description: Personal Fedora Atomic image with Niri and Noctalia.
 
-base-image: quay.io/fedora-ostree-desktops/base-atomic
+base-image: quay.io/fedora/fedora-bootc
 image-version: 44
 
 modules:
-  - from-file: modules/files.yml
+  - from-file: modules/chezmoi.yml
   - from-file: modules/packages/repositories.yml
   - from-file: modules/packages/desktop.yml
   - from-file: modules/packages/containers.yml
@@ -17,6 +17,7 @@ modules:
   - from-file: modules/packages/shell.yml
   - from-file: modules/packages/development.yml
   - from-file: modules/packages/script-dependencies.yml
+  - from-file: modules/files.yml
   - from-file: modules/scripts.yml
   - from-file: modules/services.yml
   - from-file: modules/flatpaks.yml

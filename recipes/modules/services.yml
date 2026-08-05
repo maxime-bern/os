@@ -3,6 +3,7 @@
 type: systemd
 system:
   enabled:
+    - accounts-daemon.service
     - docker.service
-    - gdm.service
+    - greetd.service
     - tailscaled.service
