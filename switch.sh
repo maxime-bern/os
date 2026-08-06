@@ -64,6 +64,26 @@ exec /usr/bin/pkexec /bin/bash -c 'cd -- "$1" && shift && exec "$@"' bluebuild-s
 EOF
 chmod 700 "$helper_directory/sudo"
 
+cat >"$helper_directory/podman" <<'EOF'
+#!/usr/bin/env bash
+
+case "${1:-}" in
+    image)
+        if [[ "${2:-}" == rm ]]; then
+            shift 2
+            exec /usr/bin/podman image rm --force "$@"
+        fi
+        ;;
+    rmi)
+        shift
+        exec /usr/bin/podman rmi --force "$@"
+        ;;
+esac
+
+exec /usr/bin/podman "$@"
+EOF
+chmod 700 "$helper_directory/podman"
+
 recipe="$repository/recipes/recipe.yml"
 build_driver=podman
 inspect_driver=podman
@@ -96,29 +116,12 @@ while ((attempt <= 3)); do
     fi
 
     blocker=$(grep -aoE 'image used by [0-9a-f]{64}' "$log" | tail -1 | awk '{print $4}' || true)
-    if [[ -z "$blocker" || ! -x "$(command -v buildah || true)" || $attempt -eq 3 ]]; then
+    if [[ -z "$blocker" || $attempt -eq 3 ]]; then
         exit "$status"
     fi
 
-    image=
-    while read -r container candidate; do
-        if [[ "$container" == "$blocker" ]]; then
-            image=$candidate
-            break
-        fi
-    done < <(buildah containers --noheading --notruncate --format '{{.ContainerID}} {{.ImageID}}')
-
-    if [[ -z "$image" ]]; then
-        exit "$status"
-    fi
-
-    while read -r container candidate; do
-        if [[ "$candidate" == "$image" ]]; then
-            buildah rm "$container"
-        fi
-    done < <(buildah containers --noheading --notruncate --format '{{.ContainerID}} {{.ImageID}}')
-
-    printf 'Retrying after removing stale BlueBuild containers for image %s\n' "$image" >&2
+    podman rm --force --storage "$blocker"
+    printf 'Retrying after removing stale BlueBuild container %s\n' "$blocker" >&2
     attempt=$((attempt + 1))
 done
 
