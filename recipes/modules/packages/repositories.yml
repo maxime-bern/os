@@ -10,5 +10,6 @@ repos:
     - https://downloads.1password.com/linux/keys/1password.asc
     - https://packages.microsoft.com/keys/microsoft.asc
   copr:
+    - scottames/ghostty
     - sneexy/zen-browser
     - yalter/niri
