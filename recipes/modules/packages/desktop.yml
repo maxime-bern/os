@@ -11,7 +11,7 @@ install:
     - 1password
     - 1password-cli
     - accountsservice
-    - alacritty
+    - ghostty
     - dbus
     - gnome-keyring
     - greetd

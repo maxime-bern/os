@@ -3,6 +3,9 @@ type: dnf
 install:
   packages:
     - htop
+    - NetworkManager-wifi
     - nvtop
+    - power-profiles-daemon
     - tailscale
+    - wireless-regdb
     - xz
