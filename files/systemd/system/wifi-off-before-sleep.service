@@ -1,10 +1,16 @@
 [Unit]
-Description=Disable Wi-Fi before sleep
+Description=Disable radios before sleep and restore their state after wake
 Before=sleep.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/nmcli radio wifi off
+RemainAfterExit=yes
+RuntimeDirectory=radios-before-sleep
+Environment=LC_ALL=C
+ExecStart=/bin/sh -c 'if /usr/bin/nmcli radio wifi | /usr/bin/grep -qx enabled; then /usr/bin/touch /run/radios-before-sleep/wifi; /usr/bin/nmcli radio wifi off || /usr/bin/rm /run/radios-before-sleep/wifi; fi'
+ExecStart=/bin/sh -c 'if /usr/bin/bluetoothctl show | /usr/bin/grep -q "Powered: yes"; then /usr/bin/touch /run/radios-before-sleep/bluetooth; /usr/bin/bluetoothctl power off || /usr/bin/rm /run/radios-before-sleep/bluetooth; fi'
+ExecStop=/bin/sh -c 'if test -e /run/radios-before-sleep/wifi; then /usr/bin/nmcli radio wifi on; fi'
+ExecStop=/bin/sh -c 'if test -e /run/radios-before-sleep/bluetooth; then /usr/bin/bluetoothctl power on; fi'
 
 [Install]
 WantedBy=sleep.target
