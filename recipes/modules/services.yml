@@ -7,3 +7,4 @@ system:
     - docker.service
     - greetd.service
     - tailscaled.service
+    - wifi-off-before-sleep.service

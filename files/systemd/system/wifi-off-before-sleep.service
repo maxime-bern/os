@@ -1,0 +1,10 @@
+[Unit]
+Description=Disable Wi-Fi before sleep
+Before=sleep.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/nmcli radio wifi off
+
+[Install]
+WantedBy=sleep.target
