@@ -10,6 +10,7 @@ configurations:
       - com.rustdesk.RustDesk
       - com.spotify.Client
       - org.fedoraproject.MediaWriter
+      - org.gnome.Loupe
       - org.fkoehler.KTailctl
       - org.kde.kdenlive
       - org.prismlauncher.PrismLauncher
