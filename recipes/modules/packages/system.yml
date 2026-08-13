@@ -2,10 +2,7 @@
 type: dnf
 install:
   packages:
-    - flatpak
     - htop
-    - NetworkManager-wifi
     - nvtop
     - tailscale
-    - wireless-regdb
     - xz
