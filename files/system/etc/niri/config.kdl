@@ -1,7 +1,0 @@
-spawn-at-startup "noctalia"
-
-binds {
-    Mod+Return { spawn "ghostty"; }
-    Mod+Q { close-window; }
-    Mod+Shift+E { quit; }
-}
