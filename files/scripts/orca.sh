@@ -17,8 +17,3 @@ trap 'rm -f "$package"' EXIT
 
 curl -fsSL "https://github.com/stablyai/orca/releases/download/v${version}/orca-ide-${version}.${arch}.rpm" -o "$package"
 dnf5 install --assumeyes "$package"
-
-python3 -m pip install --break-system-packages --no-cache-dir --prefix /usr "headroom-ai[proxy]"
-
-npm install --global --prefix /usr --ignore-scripts @colbymchenry/codegraph @earendil-works/pi-coding-agent
-npm cache clean --force

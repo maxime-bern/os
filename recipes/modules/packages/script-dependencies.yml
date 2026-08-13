@@ -3,8 +3,4 @@ type: dnf
 install:
   packages:
     - curl
-    - nodejs22
-    - nodejs22-npm
     - python3-pip
-    - tar
-    - unzip
