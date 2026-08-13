@@ -4,7 +4,3 @@ type: script
 scripts:
   - ai.sh
   - default-shell.sh
-  - ddev.sh
-  - jetbrains-mono-nerd-font.sh
-  - neovim.sh
-  - starship.sh
