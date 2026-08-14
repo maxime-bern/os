@@ -10,6 +10,7 @@ install:
     - gstreamer1-plugins-ugly
     - libavcodec-freeworld
     - libva-utils
+    - kwin-effects-better-blur-dx
     - obs-studio
     - zen-browser
 replace:
