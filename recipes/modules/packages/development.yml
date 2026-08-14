@@ -4,5 +4,6 @@ install:
   packages:
     - code
     - git
+    - gh
     - make
     - ripgrep
