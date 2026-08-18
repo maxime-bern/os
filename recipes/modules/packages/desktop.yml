@@ -15,6 +15,9 @@ install:
     - kwin-effects-better-blur-dx
     - obs-studio
     - zen-browser
+remove:
+  packages:
+    - konsole
 replace:
   - from-repo: fedora-cisco-openh264
     packages:
