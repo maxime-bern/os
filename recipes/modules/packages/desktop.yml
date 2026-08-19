@@ -11,6 +11,7 @@ install:
     - gstreamer1-plugins-ugly
     - libavcodec-freeworld
     - libva-utils
+    - mesa-va-drivers-freeworld
     - kwin-effect-roundcorners
     - kwin-effects-better-blur-dx
     - obs-studio
