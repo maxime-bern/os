@@ -4,6 +4,7 @@ install:
   packages:
     - 1password
     - 1password-cli
+    - fuse
     - fuse-libs
     - ghostty
     - gwenview
