@@ -4,3 +4,5 @@ install:
   packages:
     - steam
     - vulkan-loader.i686
+    - wine
+    - winetricks
