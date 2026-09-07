@@ -4,6 +4,8 @@ install:
   packages:
     - 1password
     - 1password-cli
+    - fuse
+    - fuse-libs
     - ghostty
     - gwenview
     - gstreamer1-plugin-openh264
