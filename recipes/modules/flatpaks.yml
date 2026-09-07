@@ -7,6 +7,10 @@ configurations:
     install:
       - com.discordapp.Discord
       - com.heroicgameslauncher.hgl
+      - com.obsproject.Studio.Plugin.BackgroundRemoval
+      - com.obsproject.Studio.Plugin.OBSPWVideo
+      - com.obsproject.Studio.Plugin.OBSVkCapture
+      - com.obsproject.Studio.Plugin.SourceClone
       - com.rustdesk.RustDesk
       - com.spotify.Client
       - org.fedoraproject.MediaWriter
