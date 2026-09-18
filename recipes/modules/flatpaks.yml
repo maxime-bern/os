@@ -12,6 +12,8 @@ configurations:
       - com.obsproject.Studio.Plugin.OBSVkCapture
       - com.obsproject.Studio.Plugin.SourceClone
       - com.obsproject.Studio.Plugin.WebSocket
+      - com.obsproject.Studio.Plugin.DroidCam
+      - com.obsproject.Studio.Plugin.Shaderfilter
       - com.rustdesk.RustDesk
       - com.spotify.Client
       - org.fedoraproject.MediaWriter
