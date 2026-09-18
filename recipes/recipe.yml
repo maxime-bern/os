@@ -8,10 +8,14 @@ image-version: 44
 
 modules:
   - from-file: modules/chezmoi.yml
-  - from-file: modules/packages/repositories.yml
+  - type: dnf
+    repos:
+      copr:
+        - ublue-os/akmods
   - type: akmods
     install:
       - v4l2loopback
+  - from-file: modules/packages/repositories.yml
   - from-file: modules/packages/desktop.yml
   - from-file: modules/packages/containers.yml
   - from-file: modules/packages/virtualization.yml
