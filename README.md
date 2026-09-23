@@ -32,11 +32,15 @@ The `latest` tag will automatically point to the latest build. That build will s
 
 ### Dotfiles
 
-Enable the chezmoi initialization and update services for your user:
+Stow is installed in the image; dotfiles are not. Clone and install them manually as your user in a running Plasma session:
 
 ```bash
-systemctl --user enable --now chezmoi-init.service chezmoi-update.timer
+git clone --branch chore/migrate-to-stow https://gitlab.com/maximebern/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+./install.sh
 ```
+
+Update them manually with `git pull && ./install.sh`. Use the default branch instead once the Stow migration is merged.
 
 ### BlueBuild switch
 

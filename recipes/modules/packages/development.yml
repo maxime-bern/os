@@ -7,3 +7,4 @@ install:
     - gh
     - make
     - ripgrep
+    - stow
