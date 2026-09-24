@@ -3,4 +3,21 @@ type: dnf
 install:
   packages:
     - curl
+    - dbus-tools
+    - ffmpeg-free
+    - fontconfig
+    - glibc-common
+    - ImageMagick
+    - kf6-kconfig
+    - kf6-kpackage
+    - polkit
+    - python3
+    - python3-dbus
+    - python3-gobject
+    - python3-pillow
     - python3-pip
+    - qt6-qttools
+    - systemd
+    - tar
+    - unzip
+    - util-linux
