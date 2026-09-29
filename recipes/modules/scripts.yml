@@ -3,4 +3,3 @@
 type: script
 scripts:
   - default-shell.sh
-  - orca.sh
