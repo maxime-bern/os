@@ -4,6 +4,7 @@ install:
   packages:
     - 1password
     - 1password-cli
+    - chromium
     - fuse
     - fuse-libs
     - ghostty
