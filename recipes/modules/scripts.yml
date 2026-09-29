@@ -3,3 +3,4 @@
 type: script
 scripts:
   - default-shell.sh
+  - 1password-groups.sh
