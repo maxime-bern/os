@@ -74,7 +74,8 @@ pipewire/wireplumber, NetworkManager, polkit, accountsservice, flatpak, the xdg 
 and Mesa, so only the desktop itself has to be added.
 
 Login flow: `modules/packages/wayland.yml` adds niri, Noctalia, `xwayland-satellite`,
-gnome-keyring, ddcutil and the GTK/GNOME portals; `modules/greeter.yml` adds greetd plus
+gnome-keyring, ddcutil and the GTK/GNOME portals; `modules/packages/nautilus.yml` adds the GTK
+file manager this base does not ship (Kinoite keeps Dolphin instead); `modules/greeter.yml` adds greetd plus
 `noctalia-greeter` (from the community Terra repo, absent from Fedora) and enables
 `greetd.service`, which is aliased to `display-manager.service`. `files/greeter/` holds the
 greetd `config.toml` pointing at `/usr/bin/noctalia-greeter-session` running as the `greetd`
