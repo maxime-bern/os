@@ -56,7 +56,40 @@ Build and switch to the local recipe with the helper script. It uses a graphical
 ./switch.sh
 ```
 
-Pass BlueBuild switch options directly, for example `./switch.sh --reboot`.
+Pass BlueBuild switch options directly, for example `./switch.sh --reboot`. Set `RECIPE` to build
+the alternative recipe: `RECIPE=recipe-noctalia.yml ./switch.sh`.
+
+## Images
+
+| Recipe | Image | Base |
+| --- | --- | --- |
+| `recipes/recipe.yml` | `ghcr.io/maxime-bern/os` | Kinoite (KDE Plasma) + niri/Noctalia |
+| `recipes/recipe-noctalia.yml` | `ghcr.io/maxime-bern/os-noctalia` | Atomic base, niri + Noctalia + Noctalia greeter |
+
+### os-noctalia
+
+Same packages as `os` minus the KDE ones (`modules/packages/kde.yml` is only pulled by the
+Plasma recipe), on the minimal Fedora Atomic base instead of Kinoite. The base already ships
+pipewire/wireplumber, NetworkManager, polkit, accountsservice, flatpak, the xdg portals, upower
+and Mesa, so only the desktop itself has to be added.
+
+Login flow: `modules/packages/wayland.yml` adds niri, Noctalia, `xwayland-satellite`,
+gnome-keyring, ddcutil and the GTK/GNOME portals; `modules/greeter.yml` adds greetd plus
+`noctalia-greeter` (from the community Terra repo, absent from Fedora) and enables
+`greetd.service`, which is aliased to `display-manager.service`. `files/greeter/` holds the
+greetd `config.toml` pointing at `/usr/bin/noctalia-greeter-session` running as the `greetd`
+user, and a `tmpfiles.d` drop-in for the greeter state dir `/var/lib/noctalia-greeter`. The
+greeter draws its own wlroots compositor, so it works on a TTY before any session starts.
+
+The greeter lists the sessions it finds in `/usr/share/wayland-sessions`, here only niri. No
+`greeter.toml` is shipped: the built-in defaults apply until one is written (a declarative one
+belongs in `/var/lib/noctalia-greeter/greeter.toml`, owned by `greetd`).
+
+Rebase with the same commands as above, replacing `os` with `os-noctalia`.
+
+If the greeter does not come up, keep a TTY available and check `systemctl status greetd`,
+`journalctl -u greetd -b` and `ausearch -m avc -ts recent` (SELinux is the usual suspect with a
+greeter built outside of Fedora).
 
 ## ISO
 

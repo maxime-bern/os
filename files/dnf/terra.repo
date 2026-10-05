@@ -1,0 +1,11 @@
+# Terra, community repo providing noctalia-greeter on Fedora 44+.
+# Upstream instructions use `--repofrompath`, this is the same repo written out.
+[terra]
+name=Terra $releasever
+baseurl=https://repos.fyralabs.com/terra$releasever
+type=rpm
+enabled=1
+metadata_expire=6h
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://repos.fyralabs.com/terra$releasever/key.asc

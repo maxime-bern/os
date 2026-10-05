@@ -1,0 +1,9 @@
+[terminal]
+vt = 1
+
+[default_session]
+# Must be the session wrapper, not the noctalia-greeter binary: the wrapper
+# starts the bundled wlroots compositor and the greeter inside it.
+command = "/usr/bin/noctalia-greeter-session"
+# User created by the Fedora greetd package (sysusers.d), reused as is.
+user = "greetd"

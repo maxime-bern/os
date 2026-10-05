@@ -84,7 +84,7 @@ exec /usr/bin/podman "$@"
 EOF
 chmod 700 "$helper_directory/podman"
 
-recipe="$repository/recipes/recipe.yml"
+recipe="$repository/recipes/${RECIPE:-recipe.yml}"
 build_driver=podman
 inspect_driver=podman
 run_driver=podman

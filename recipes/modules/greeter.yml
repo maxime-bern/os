@@ -1,0 +1,26 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  # noctalia-greeter is not in Fedora, it comes from the community Terra repo.
+  # The Terra release package is not fetchable as a .repo file, so the repo is
+  # declared here. Both the repo file and the key are build-time only.
+  - type: dnf
+    repos:
+      files:
+        - terra.repo
+      keys:
+        - https://repos.fyralabs.com/terra%OS_VERSION%/key.asc
+    install:
+      packages:
+        - greetd
+        - noctalia-greeter
+  # greetd ships a config running agreety, replace it with the Noctalia greeter
+  # wrapper, and keep /var/lib/noctalia-greeter across rebases through tmpfiles.
+  - type: files
+    files:
+      - source: greeter
+        destination: /
+  - type: systemd
+    system:
+      enabled:
+        - greetd.service
