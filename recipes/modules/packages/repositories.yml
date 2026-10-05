@@ -10,7 +10,5 @@ repos:
     - https://downloads.1password.com/linux/keys/1password.asc
     - https://packages.microsoft.com/keys/microsoft.asc
   copr:
-    - infinality/kwin-effects-better-blur-dx
-    - matinlotfali/KDE-Rounded-Corners
     - scottames/ghostty
     - sneexy/zen-browser

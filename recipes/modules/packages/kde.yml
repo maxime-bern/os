@@ -1,0 +1,15 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+type: dnf
+repos:
+  copr:
+    - infinality/kwin-effects-better-blur-dx
+    - matinlotfali/KDE-Rounded-Corners
+install:
+  packages:
+    - gwenview
+    - kwin-effect-roundcorners
+    - kwin-effects-better-blur-dx
+remove:
+  packages:
+    - konsole
