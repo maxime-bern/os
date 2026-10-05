@@ -42,6 +42,12 @@ cd ~/dotfiles
 
 Update them manually with `git pull && ./install.sh`. Use the default branch instead once the Stow migration is merged.
 
+### Wayland session
+
+The Kinoite base keeps KDE, and `packages/wayland.yml` adds niri and Noctalia next to it: `niri` (with `xwayland-satellite` for X11 apps), `noctalia`, `xdg-desktop-portal-gtk` and `xdg-desktop-portal-gnome` for file pickers and screencasting, `gnome-keyring` for the Secret portal, `upower` and `ddcutil` for Noctalia's battery and external-brightness widgets. `files/system/usr/share/xdg-desktop-portal/niri-portals.conf` selects those portals and pins `FileChooser` to GTK so no Nautilus is needed. Noctalia draws the bar, launcher, notifications, lock screen and wallpaper; its config lives in the dotfiles repo (`~/.config/niri/config.kdl` and `~/.config/noctalia/config.toml`).
+
+Pick the `niri` session in SDDM after rebasing. Portal screencasting only works from `niri-session`, i.e. from SDDM or the `niri-session` script.
+
 ### BlueBuild switch
 
 Build and switch to the local recipe with the helper script. It uses a graphical Polkit prompt for BlueBuild's privileged operation:

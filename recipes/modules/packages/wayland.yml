@@ -1,0 +1,12 @@
+---
+type: dnf
+install:
+  packages:
+    - ddcutil
+    - gnome-keyring
+    - niri
+    - noctalia
+    - upower
+    - xdg-desktop-portal-gnome
+    - xdg-desktop-portal-gtk
+    - xwayland-satellite

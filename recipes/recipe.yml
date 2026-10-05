@@ -16,6 +16,7 @@ modules:
       - v4l2loopback
   - from-file: modules/packages/repositories.yml
   - from-file: modules/packages/desktop.yml
+  - from-file: modules/packages/wayland.yml
   - from-file: modules/packages/containers.yml
   - from-file: modules/packages/virtualization.yml
   - from-file: modules/packages/gaming.yml
