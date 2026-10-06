@@ -1,5 +1,8 @@
 ---
 type: dnf
+remove:
+  packages:
+    - fzf
 install:
   packages:
     - zoxide
