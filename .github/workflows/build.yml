@@ -27,6 +27,7 @@ jobs:
           # !! Add your recipes here
           - recipe.yml
           - recipe-noctalia.yml
+          - recipe-work-os.yml
     steps:
       # the build is fully handled by the reusable github action
       - name: Build Custom Image
