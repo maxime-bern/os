@@ -2,7 +2,7 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 modules:
   # greetd and noctalia-greeter are not in Fedora, they come from the community
-  # Terra repo. Both the repo file and the key are build-time only.
+  # Terra repo.
   - type: dnf
     repos:
       files:

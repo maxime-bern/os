@@ -88,8 +88,10 @@ or torrent apps. The personal recipes include these through `media` and `apps`, 
 
 ### os-noctalia
 
-Same packages as `os` minus the KDE ones (the KDE tweaks only live in `profiles/de/kde.yml`), on the
-minimal Fedora Atomic base instead of Kinoite. The base already ships
+Same profiles as `os` except the `de/` one (`de/niri.yml` instead of `de/kde.yml`, so no KDE
+tweaks), on the minimal Fedora Atomic base instead of Kinoite. Note that the KDE framework
+packages `shell.yml` pulls in are dependencies of the dotfiles installer, not of KDE: they are in
+every image. The base already ships
 pipewire/wireplumber, NetworkManager, polkit, accountsservice, flatpak, the xdg portals, upower
 and Mesa, so only the desktop itself has to be added.
 
