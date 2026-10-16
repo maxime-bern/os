@@ -13,8 +13,40 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
   cancel-in-progress: true
 jobs:
+  changed:
+    name: Detect Recipes To Build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      recipes: ${{ steps.detect.outputs.recipes }}
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+        with:
+          # a commit range is diffed, so the whole history is needed
+          fetch-depth: 0
+      - name: Resolve the recipes the change reaches
+        id: detect
+        env:
+          EVENT: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.sha }}
+        run: |
+          case "$EVENT" in
+            push) range=("$BEFORE" "$HEAD") ;;
+            pull_request) range=("$BASE" "$HEAD") ;;
+            *) range=(all) ;;
+          esac
+          recipes=$(./.github/scripts/changed-recipes.sh "${range[@]}" | jq -R . | jq -s -c .)
+          echo "Building $recipes"
+          echo "recipes=$recipes" >> "$GITHUB_OUTPUT"
   bluebuild:
     name: Build Custom Image
+    needs: changed
+    # nothing to build when the change reaches no recipe
+    if: needs.changed.outputs.recipes != '[]'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -23,11 +55,7 @@ jobs:
     strategy:
       fail-fast: false # stop GH from cancelling all matrix builds if one fails
       matrix:
-        recipe:
-          # !! Add your recipes here
-          - recipe.yml
-          - recipe-noctalia.yml
-          - recipe-work-os.yml
+        recipe: ${{ fromJSON(needs.changed.outputs.recipes) }}
     steps:
       # the build is fully handled by the reusable github action
       - name: Build Custom Image
@@ -38,5 +66,5 @@ jobs:
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
 
-          # enabled by default, disable if your image is small and you want faster builds
+          # enabled by default, disable if your image is small and want faster builds
           maximize_build_space: true
