@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Prints the recipes a range of commits reaches, one path per line.
+# Prints the recipes a range of commits reaches, one name per line, as the
+# bluebuild action wants them: relative to the recipes/ directory.
 #
 #   changed-recipes.sh <base> <head>   recipes touched by that range
 #   changed-recipes.sh all             every recipe
@@ -16,8 +17,20 @@ set -euo pipefail
 repository=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)
 cd "$repository"
 
+# The recipe files, as paths; the include graph speaks paths too.
+recipe_paths() {
+    local recipe
+    for recipe in recipes/recipe*.yml; do
+        printf '%s\n' "$recipe"
+    done
+}
+
+# The same list as the action wants it: names, relative to recipes/.
 all_recipes() {
-    ls recipes/recipe*.yml
+    local recipe
+    for recipe in $(recipe_paths); do
+        printf '%s\n' "${recipe#recipes/}"
+    done
 }
 
 if [[ ${1:-all} == all ]]; then
@@ -70,8 +83,8 @@ dependencies() {
 while read -r recipe; do
     while read -r file; do
         if grep -qxF "$file" <<<"$changed"; then
-            printf '%s\n' "$recipe"
+            printf '%s\n' "${recipe#recipes/}"
             break
         fi
     done < <(dependencies "$recipe")
-done < <(all_recipes)
+done < <(recipe_paths)
