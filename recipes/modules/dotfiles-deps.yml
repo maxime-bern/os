@@ -10,6 +10,7 @@ install:
     - glibc-common
     - kf6-kconfig
     - kf6-kpackage
+    - libatomic
     - polkit
     - python3
     - python3-dbus
