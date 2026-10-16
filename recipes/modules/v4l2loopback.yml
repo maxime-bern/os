@@ -5,6 +5,7 @@ modules:
     repos:
       copr:
         - ublue-os/akmods
+      nonfree: rpmfusion
   - type: akmods
     install:
       - v4l2loopback

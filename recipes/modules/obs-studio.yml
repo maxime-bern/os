@@ -2,6 +2,10 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 modules:
   - type: dnf
+    repos:
+      # The x264, DistroAV and NDI plugins are weak dependencies of
+      # obs-studio-libs, only available in RPM Fusion.
+      nonfree: rpmfusion
     install:
       packages:
         - obs-studio
