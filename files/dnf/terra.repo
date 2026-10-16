@@ -1,4 +1,4 @@
-# Terra, community repo providing noctalia-greeter on Fedora 44+.
+# Terra, community repo providing noctalia-greeter and zed on Fedora 44+.
 # Upstream instructions use `--repofrompath`, this is the same repo written out.
 [terra]
 name=Terra $releasever

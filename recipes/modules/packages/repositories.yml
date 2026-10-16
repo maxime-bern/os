@@ -5,10 +5,10 @@ repos:
   files:
     - https://download.docker.com/linux/fedora/docker-ce.repo
     - 1password.repo
-    - vscode.repo
+    - terra.repo
   keys:
     - https://downloads.1password.com/linux/keys/1password.asc
-    - https://packages.microsoft.com/keys/microsoft.asc
+    - https://repos.fyralabs.com/terra%OS_VERSION%/key.asc
   copr:
     - scottames/ghostty
     - sneexy/zen-browser

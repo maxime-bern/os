@@ -2,7 +2,7 @@
 type: dnf
 install:
   packages:
-    - code
+    - zed
     - git
     - gh
     - make
