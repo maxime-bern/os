@@ -22,7 +22,7 @@ jobs:
       recipes: ${{ steps.detect.outputs.recipes }}
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           # a commit range is diffed, so the whole history is needed
           fetch-depth: 0
