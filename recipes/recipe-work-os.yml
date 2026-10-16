@@ -1,7 +1,7 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-name: os-noctalia
-description: Personal Fedora Atomic image with niri, Noctalia and the Noctalia greeter.
+name: work-os
+description: Work Fedora Atomic image with niri, Noctalia and the Noctalia greeter.
 
 base-image: quay.io/fedora-ostree-desktops/base-atomic
 image-version: 44
@@ -15,4 +15,6 @@ modules:
   - from-file: profiles/secrets.yml
   - from-file: profiles/vpn.yml
   - from-file: profiles/codecs.yml
+  - from-file: profiles/media-playback.yml
+  - from-file: profiles/chat.yml
   - type: signing

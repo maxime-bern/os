@@ -1,0 +1,4 @@
+---
+modules:
+  - from-file: modules/vlc.yml
+  - from-file: modules/spotify.yml
