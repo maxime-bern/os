@@ -73,18 +73,18 @@ capabilities that machine has, a module installs one thing.
 
 ```
 recipe-work-os.yml   profiles/de/niri.yml + shell, dev, system, browsers, secrets, vpn, codecs,
-                     media-playback, chat + signing
+                     media-playback, chat, work + signing
 recipes/profiles/    one file per capability: de/niri, de/niri-session, de/kde, shell, dev,
                      virtualization, system, browsers, secrets, vpn, codecs, capture, gaming,
-                     media-playback, chat, media, apps. A profile may include another profile (dev pulls
+                     media-playback, chat, media, apps, work. A profile may include another profile (dev pulls
                      virtualization).
 recipes/modules/     one file per piece of software, with the wiring it needs: its repo, its
                      packages, its shipped files, its systemd unit, its script, its flatpak.
 ```
 Work and personal differ only in the recipe's list: `recipe-work-os.yml` includes
-`media-playback` (VLC, Spotify) and `chat` (Discord), but no capture, gaming, video editing
-or torrent apps. The personal recipes include these through `media` and `apps`, alongside
-`capture` and `gaming`.
+`media-playback` (VLC, Spotify), `chat` (Discord) and `work` (gcloud, OnlyOffice, FileZilla), but
+no capture, gaming, video editing or torrent apps. The personal recipes include these through
+`media` and `apps`, alongside `capture` and `gaming`.
 
 ### os-noctalia
 

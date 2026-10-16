@@ -17,4 +17,5 @@ modules:
   - from-file: profiles/codecs.yml
   - from-file: profiles/media-playback.yml
   - from-file: profiles/chat.yml
+  - from-file: profiles/work.yml
   - type: signing

@@ -1,0 +1,7 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+# Software only the work image wants.
+modules:
+  - from-file: modules/gcloud.yml
+  - from-file: modules/onlyoffice.yml
+  - from-file: modules/filezilla.yml

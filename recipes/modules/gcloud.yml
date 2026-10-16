@@ -1,0 +1,12 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+type: dnf
+repos:
+  # gcloud is not in Fedora; it ships a .repo file and a key instead.
+  files:
+    - google-cloud-cli.repo
+  keys:
+    - https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+install:
+  packages:
+    - google-cloud-cli
