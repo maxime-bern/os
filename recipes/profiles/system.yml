@@ -1,0 +1,6 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - from-file: modules/system-tools.yml
+  - from-file: modules/flatpak.yml
+  - from-file: modules/sleep-radios.yml

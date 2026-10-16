@@ -1,0 +1,10 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+type: dnf
+repos:
+  # Zen is not in Fedora.
+  copr:
+    - sneexy/zen-browser
+install:
+  packages:
+    - zen-browser

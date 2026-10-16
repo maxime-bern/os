@@ -1,0 +1,11 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+type: dnf
+install:
+  packages:
+    - noctalia
+    # gnome-keyring feeds the Secret portal; upower and ddcutil feed Noctalia's
+    # battery and external-brightness widgets.
+    - ddcutil
+    - gnome-keyring
+    - upower

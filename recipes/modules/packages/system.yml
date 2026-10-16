@@ -1,8 +1,0 @@
----
-type: dnf
-install:
-  packages:
-    - htop
-    - nvtop
-    - tailscale
-    - xz

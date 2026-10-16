@@ -7,9 +7,5 @@ repos:
     - matinlotfali/KDE-Rounded-Corners
 install:
   packages:
-    - gwenview
     - kwin-effect-roundcorners
     - kwin-effects-better-blur-dx
-remove:
-  packages:
-    - konsole

@@ -1,0 +1,19 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - type: dnf
+    install:
+      packages:
+        - obs-studio
+  - type: default-flatpaks
+    configurations:
+      - notify: true
+        scope: system
+        install:
+          - com.obsproject.Studio.Plugin.BackgroundRemoval
+          - com.obsproject.Studio.Plugin.OBSPWVideo
+          - com.obsproject.Studio.Plugin.OBSVkCapture
+          - com.obsproject.Studio.Plugin.SourceClone
+          - com.obsproject.Studio.Plugin.WebSocket
+          - com.obsproject.Studio.Plugin.DroidCam
+          - com.obsproject.Studio.Plugin.Shaderfilter

@@ -1,0 +1,12 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+type: dnf
+repos:
+  # Zed is not in Fedora, it comes from the community Terra repo.
+  files:
+    - terra.repo
+  keys:
+    - https://repos.fyralabs.com/terra%OS_VERSION%/key.asc
+install:
+  packages:
+    - zed

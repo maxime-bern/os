@@ -44,7 +44,7 @@ Update them manually with `git pull && ./install.sh`. Use the default branch ins
 
 ### Wayland session
 
-The Kinoite base keeps KDE, and `packages/wayland.yml` adds niri and Noctalia next to it: `niri` (with `xwayland-satellite` for X11 apps), `noctalia`, `xdg-desktop-portal-gtk` and `xdg-desktop-portal-gnome` for file pickers and screencasting, `gnome-keyring` for the Secret portal, `upower` and `ddcutil` for Noctalia's battery and external-brightness widgets. `files/system/usr/share/xdg-desktop-portal/niri-portals.conf` selects those portals and pins `FileChooser` to GTK so no Nautilus is needed. Noctalia draws the bar, launcher, notifications, lock screen and wallpaper; its config lives in the dotfiles repo (`~/.config/niri/config.kdl` and `~/.config/noctalia/config.toml`).
+The Kinoite base keeps KDE, and `profiles/de/niri-session.yml` (pulled by `profiles/de/kde.yml`) adds niri and Noctalia next to it: `niri` (with `xwayland-satellite` for X11 apps), `noctalia`, `xdg-desktop-portal-gtk` and `xdg-desktop-portal-gnome` for file pickers and screencasting, `gnome-keyring` for the Secret portal, `upower` and `ddcutil` for Noctalia's battery and external-brightness widgets. `files/system/usr/share/xdg-desktop-portal/niri-portals.conf` selects those portals and pins `FileChooser` to GTK so no Nautilus is needed. Noctalia draws the bar, launcher, notifications, lock screen and wallpaper; its config lives in the dotfiles repo (`~/.config/niri/config.kdl` and `~/.config/noctalia/config.toml`).
 
 Pick the `niri` session in SDDM after rebasing. Portal screencasting only works from `niri-session`, i.e. from SDDM or the `niri-session` script.
 
@@ -66,16 +66,33 @@ the alternative recipe: `RECIPE=recipe-noctalia.yml ./switch.sh`.
 | `recipes/recipe.yml` | `ghcr.io/maxime-bern/os` | Kinoite (KDE Plasma) + niri/Noctalia |
 | `recipes/recipe-noctalia.yml` | `ghcr.io/maxime-bern/os-noctalia` | Atomic base, niri + Noctalia + Noctalia greeter |
 
+### Layout
+
+Three layers, one direction: a recipe says which machine it is, a profile says which
+capabilities that machine has, a module installs one thing.
+
+```
+recipe-work-os.yml   profiles/de/niri.yml + shell, dev, system, browsers, secrets, vpn, codecs + signing
+recipes/profiles/    one file per capability: de/niri, de/niri-session, de/kde, shell, dev,
+                     virtualization, system, browsers, secrets, vpn, codecs, capture, gaming,
+                     media, apps. A profile may include another profile (dev pulls
+                     virtualization).
+recipes/modules/     one file per piece of software, with the wiring it needs: its repo, its
+                     packages, its shipped files, its systemd unit, its script, its flatpak.
+```
+Work and personal differ only in the recipe's list: `recipe-work-os.yml` stops after `codecs`,
+the personal recipes add `capture`, `gaming`, `media` and `apps`.
+
 ### os-noctalia
 
-Same packages as `os` minus the KDE ones (`modules/packages/kde.yml` is only pulled by the
-Plasma recipe), on the minimal Fedora Atomic base instead of Kinoite. The base already ships
+Same packages as `os` minus the KDE ones (the KDE tweaks only live in `profiles/de/kde.yml`), on the
+minimal Fedora Atomic base instead of Kinoite. The base already ships
 pipewire/wireplumber, NetworkManager, polkit, accountsservice, flatpak, the xdg portals, upower
 and Mesa, so only the desktop itself has to be added.
 
-Login flow: `modules/packages/wayland.yml` adds niri, Noctalia, `xwayland-satellite`,
-gnome-keyring, ddcutil and the GTK/GNOME portals; `modules/packages/nautilus.yml` adds the GTK
-file manager this base does not ship (Kinoite keeps Dolphin instead); `modules/greeter.yml` adds greetd plus
+Login flow: `profiles/de/niri-session.yml` adds niri, Noctalia, `xwayland-satellite`,
+gnome-keyring, ddcutil and the GTK/GNOME portals; `profiles/de/niri.yml` adds the GTK
+file manager this base does not ship (Kinoite keeps Dolphin instead) plus greetd and
 `noctalia-greeter` (from the community Terra repo, absent from Fedora) and enables
 `greetd.service`, which is aliased to `display-manager.service`. `files/greeter/` holds the
 greetd `config.toml` pointing at `/usr/bin/noctalia-greeter-session` running as the `greetd`

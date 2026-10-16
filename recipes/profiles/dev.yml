@@ -1,0 +1,7 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+# Development tooling, which needs the containers and VMs it works in.
+modules:
+  - from-file: modules/dev-tools.yml
+  - from-file: modules/zed.yml
+  - from-file: profiles/virtualization.yml

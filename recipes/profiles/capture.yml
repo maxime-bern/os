@@ -1,0 +1,6 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+# Screen capture and streaming (OBS Studio).
+modules:
+  - from-file: modules/obs-studio.yml
+  - from-file: modules/v4l2loopback.yml

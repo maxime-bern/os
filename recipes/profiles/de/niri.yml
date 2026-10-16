@@ -1,0 +1,6 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - from-file: profiles/de/niri-session.yml
+  - from-file: modules/nautilus.yml
+  - from-file: modules/noctalia-greeter.yml

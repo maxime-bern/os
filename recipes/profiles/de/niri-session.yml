@@ -1,0 +1,7 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+# The niri + Noctalia session, shared by both images.
+modules:
+  - from-file: modules/niri.yml
+  - from-file: modules/noctalia.yml
+  - from-file: modules/xdg-desktop-portals.yml

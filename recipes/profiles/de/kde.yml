@@ -1,0 +1,9 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+# Kinoite already ships Dolphin and SDDM, so the niri session is added next to
+# the KDE tweaks.
+modules:
+  - from-file: modules/gwenview.yml
+  - from-file: modules/kwin-effects.yml
+  - from-file: modules/konsole.yml
+  - from-file: profiles/de/niri-session.yml

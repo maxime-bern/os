@@ -1,0 +1,13 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - type: dnf
+    install:
+      packages:
+        - xdg-desktop-portal-gnome
+        - xdg-desktop-portal-gtk
+  # Selects those portals and pins FileChooser to GTK, so no Nautilus is needed.
+  - type: files
+    files:
+      - source: system/usr/share/xdg-desktop-portal/niri-portals.conf
+        destination: /usr/share/xdg-desktop-portal/niri-portals.conf

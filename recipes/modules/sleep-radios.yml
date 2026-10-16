@@ -1,8 +1,7 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
 type: systemd
+# Radios off while suspended. The unit itself is files/systemd/system/.
 system:
   enabled:
-    - docker.service
-    - tailscaled.service
     - wifi-off-before-sleep.service

@@ -1,0 +1,7 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - from-file: modules/discord.yml
+  - from-file: modules/rustdesk.yml
+  - from-file: modules/ktailctl.yml
+  - from-file: modules/qbittorrent.yml

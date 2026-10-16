@@ -7,26 +7,16 @@ base-image: quay.io/fedora-ostree-desktops/kinoite
 image-version: 44
 
 modules:
-  - type: dnf
-    repos:
-      copr:
-        - ublue-os/akmods
-  - type: akmods
-    install:
-      - v4l2loopback
-  - from-file: modules/packages/repositories.yml
-  - from-file: modules/packages/kde.yml
-  - from-file: modules/packages/desktop.yml
-  - from-file: modules/packages/wayland.yml
-  - from-file: modules/packages/containers.yml
-  - from-file: modules/packages/virtualization.yml
-  - from-file: modules/packages/gaming.yml
-  - from-file: modules/packages/system.yml
-  - from-file: modules/packages/shell.yml
-  - from-file: modules/packages/development.yml
-  - from-file: modules/packages/script-dependencies.yml
-  - from-file: modules/files.yml
-  - from-file: modules/scripts.yml
-  - from-file: modules/services.yml
-  - from-file: modules/flatpaks.yml
-  - from-file: modules/signing.yml
+  - from-file: profiles/de/kde.yml
+  - from-file: profiles/shell.yml
+  - from-file: profiles/dev.yml
+  - from-file: profiles/system.yml
+  - from-file: profiles/browsers.yml
+  - from-file: profiles/secrets.yml
+  - from-file: profiles/vpn.yml
+  - from-file: profiles/codecs.yml
+  - from-file: profiles/capture.yml
+  - from-file: profiles/gaming.yml
+  - from-file: profiles/media.yml
+  - from-file: profiles/apps.yml
+  - type: signing

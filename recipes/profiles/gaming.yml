@@ -1,0 +1,7 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - from-file: modules/steam.yml
+  - from-file: modules/wine.yml
+  - from-file: modules/heroic.yml
+  - from-file: modules/prismlauncher.yml

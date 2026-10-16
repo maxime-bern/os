@@ -1,0 +1,8 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+type: dnf
+install:
+  packages:
+    - steam
+    # 32-bit runtime for Steam.
+    - vulkan-loader.i686
