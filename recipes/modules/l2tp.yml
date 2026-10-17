@@ -1,0 +1,9 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+# L2TP/IPsec for the Infostrates VPN; libreswan is only a weak dep of the plugin.
+type: dnf
+install:
+  packages:
+    - NetworkManager-l2tp
+    - xl2tpd
+    - libreswan
