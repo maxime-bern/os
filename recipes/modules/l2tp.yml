@@ -15,3 +15,7 @@ modules:
         destination: /etc/ipsec.conf
       - source: system/usr/lib/modules-load.d/l2tp.conf
         destination: /usr/lib/modules-load.d/l2tp.conf
+      - source: system/etc/modprobe.d/l2tp_netlink-blacklist.conf
+        destination: /etc/modprobe.d/l2tp_netlink-blacklist.conf
+      - source: system/etc/modprobe.d/l2tp_ppp-blacklist.conf
+        destination: /etc/modprobe.d/l2tp_ppp-blacklist.conf
