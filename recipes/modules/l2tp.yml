@@ -1,9 +1,8 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
-# L2TP/IPsec for the Infostrates VPN; libreswan is only a weak dep of the plugin.
+# L2TP/IPsec for the Infostrates VPN; libreswan is only a weak dep; go-l2tp fills the L2TP daemon (no xl2tpd on F44).
 type: dnf
 install:
   packages:
     - NetworkManager-l2tp
-    - xl2tpd
     - libreswan
