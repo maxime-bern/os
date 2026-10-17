@@ -13,3 +13,5 @@ modules:
     files:
       - source: system/etc/ipsec.conf
         destination: /etc/ipsec.conf
+      - source: system/usr/lib/modules-load.d/l2tp.conf
+        destination: /usr/lib/modules-load.d/l2tp.conf
