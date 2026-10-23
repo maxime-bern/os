@@ -82,7 +82,7 @@ recipes/modules/     one file per piece of software, with the wiring it needs: i
                      packages, its shipped files, its systemd unit, its script, its flatpak.
 ```
 Work and personal differ only in the recipe's list: `recipe-work-os.yml` includes
-`media-playback` (VLC, Spotify), `chat` (Discord) and `work` (gcloud, OnlyOffice, FileZilla), but
+`media-playback` (VLC, Spotify), `chat` (Discord) and `work` (gcloud, OnlyOffice, FileZilla, the NVIDIA driver), but
 no capture, gaming, video editing or torrent apps. The personal recipes include these through
 `media` and `apps`, alongside `capture` and `gaming`.
 
@@ -113,6 +113,20 @@ Rebase with the same commands as above, replacing `os` with `os-noctalia`.
 If the greeter does not come up, keep a TTY available and check `systemctl status greetd`,
 `journalctl -u greetd -b` and `ausearch -m avc -ts recent` (SELinux is the usual suspect with a
 greeter built outside of Fedora).
+
+### NVIDIA on work-os
+
+`modules/nvidia.yml` installs Universal Blue's prebuilt `nvidia-open` kmod, signed with their key.
+With Secure Boot on, enroll that key once, then reboot and confirm the enrollment in the blue MOK
+manager screen with the password `universalblue`:
+
+```bash
+curl -fLo /tmp/akmods-ublue.der https://github.com/ublue-os/akmods/raw/main/certs/public_key.der
+sudo mokutil --import /tmp/akmods-ublue.der   # set the password to universalblue
+```
+
+Check with `lsmod | grep nvidia` and `nvidia-smi`. Until the key is enrolled the module is refused
+and the laptop runs on the Intel iGPU alone.
 
 ## ISO
 

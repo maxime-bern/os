@@ -1,0 +1,8 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+# Ublue's prebuilt open-kernel-module driver (Turing and later; here an RTX 3050 Ti Mobile).
+# It also blacklists nouveau through bootc kargs. The kmod is signed with ublue's key, which
+# Secure Boot only trusts once enrolled as a MOK (see the README).
+type: akmods
+install: []
+nvidia-driver: nvidia-open

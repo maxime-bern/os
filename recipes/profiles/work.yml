@@ -7,3 +7,5 @@ modules:
   - from-file: modules/filezilla.yml
   - from-file: modules/l2tp.yml
   - from-file: modules/socat.yml
+  # The work laptop's dGPU; after codecs, since the driver install disables the RPM Fusion repos.
+  - from-file: modules/nvidia.yml
