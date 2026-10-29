@@ -7,5 +7,7 @@ type=rpm
 enabled=1
 metadata_expire=6h
 gpgcheck=1
-repo_gpgcheck=1
+# Terra's repomd.xml signature does not verify (Bad PGP signature), which dnf
+# treats as a fatal repo error. Packages are still signature-checked.
+repo_gpgcheck=0
 gpgkey=https://repos.fyralabs.com/terra$releasever/key.asc
