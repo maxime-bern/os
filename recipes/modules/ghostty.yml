@@ -5,12 +5,9 @@ repos:
   # Ghostty is not in Fedora.
   copr:
     - scottames/ghostty
-  # Terra packages its terminfo and shell integration subpackages, which the
-  # Copr build pulls in as weak dependencies.
-  files:
-    - terra.repo
-  keys:
-    - https://repos.fyralabs.com/terra%OS_VERSION%/key.asc
 install:
+  # Terra's stale ghostty subpackages would be pulled in as weak deps and
+  # collide with the files the Copr build now ships itself.
+  install-weak-deps: false
   packages:
     - ghostty
