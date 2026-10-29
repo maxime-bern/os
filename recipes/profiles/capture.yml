@@ -3,4 +3,3 @@
 # Screen capture and streaming (OBS Studio).
 modules:
   - from-file: modules/obs-studio.yml
-  - from-file: modules/v4l2loopback.yml
