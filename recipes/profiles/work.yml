@@ -4,6 +4,7 @@
 modules:
   - from-file: modules/gcloud.yml
   - from-file: modules/onlyoffice.yml
+  - from-file: modules/libreoffice.yml
   - from-file: modules/filezilla.yml
   - from-file: modules/l2tp.yml
   - from-file: modules/socat.yml
