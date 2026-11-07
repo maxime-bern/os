@@ -11,3 +11,6 @@ gpgcheck=1
 # treats as a fatal repo error. Packages are still signature-checked.
 repo_gpgcheck=0
 gpgkey=https://repos.fyralabs.com/terra$releasever/key.asc
+# Terra also packages the 1Password app, in a layout 1password-groups.sh does not
+# expect; keep the app on 1Password's own repo (the CLI still comes from Terra).
+excludepkgs=1password
