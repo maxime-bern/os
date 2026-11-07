@@ -1,0 +1,16 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  # Fedora's ollama lags far behind upstream, so the release is pinned here and
+  # checked against its sha256. Bump both in files/scripts/ollama.sh.
+  - type: script
+    scripts:
+      - ollama.sh
+  - type: files
+    files:
+      - source: system/usr/lib/sysusers.d/ollama.conf
+        destination: /usr/lib/sysusers.d/ollama.conf
+  - type: systemd
+    system:
+      enabled:
+        - ollama.service
