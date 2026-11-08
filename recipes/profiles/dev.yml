@@ -3,6 +3,7 @@
 # Development tooling, which needs the containers and VMs it works in.
 modules:
   - from-file: modules/dev-tools.yml
+  - from-file: modules/kde-dev.yml
   - from-file: modules/zed.yml
   - from-file: modules/ollama.yml
   - from-file: profiles/virtualization.yml

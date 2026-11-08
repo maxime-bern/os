@@ -1,0 +1,16 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+# Toolchain and headers to build KDE apps (Qt 6, Kirigami) on the host.
+type: dnf
+install:
+  packages:
+    - cmake
+    - extra-cmake-modules
+    - gcc-c++
+    - kf6-kconfig-devel
+    - kf6-kcoreaddons-devel
+    - kf6-ki18n-devel
+    - kf6-kirigami-devel
+    - kf6-knotifications-devel
+    - qt6-qtbase-devel
+    - qt6-qtdeclarative-devel
