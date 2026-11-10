@@ -1,5 +1,6 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+# Both effects are enabled by the dotfiles' chore/kde branch (setup/kde/kwinrc.sh).
 type: dnf
 repos:
   copr:
@@ -9,3 +10,4 @@ install:
   packages:
     - kwin-effect-roundcorners
     - kwin-effects-better-blur-dx
+    - kwin-effect-roundcorners

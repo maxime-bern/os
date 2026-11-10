@@ -35,12 +35,12 @@ The `latest` tag will automatically point to the latest build. That build will s
 Stow is installed in the image; dotfiles are not. Clone and install them manually as your user in a running Plasma session:
 
 ```bash
-git clone --branch chore/migrate-to-stow https://gitlab.com/maximebern/dotfiles.git ~/dotfiles
+git clone --branch chore/kde https://gitlab.com/maximebern/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./install.sh
 ```
 
-Update them manually with `git pull && ./install.sh`. Use the default branch instead once the Stow migration is merged.
+Update them manually with `git pull && ./install.sh`. Use the default branch instead once `chore/kde` is merged.
 
 ### Wayland session
 
@@ -72,7 +72,7 @@ Three layers, one direction: a recipe says which machine it is, a profile says w
 capabilities that machine has, a module installs one thing.
 
 ```
-recipe-work-os.yml   profiles/de/niri.yml + shell, dev, system, browsers, secrets, vpn, codecs,
+recipe-work-os.yml   profiles/de/kde.yml + shell, dev, system, browsers, secrets, vpn, codecs,
                      media-playback, chat, work + signing
 recipes/profiles/    one file per capability: de/niri, de/niri-session, de/kde, shell, dev,
                      virtualization, system, browsers, secrets, vpn, codecs, capture, gaming,
